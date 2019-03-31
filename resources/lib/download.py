@@ -48,6 +48,7 @@ def download_video(video_url, video_name=None):
     download_ok = False
     with YDStreamUtils.DownloadProgress() as prog:
         try:
+            YDStreamExtractor.overrideParam('ffmpeg_location', '/data/data/com.termux/files/usr/bin/ffmpeg')
             YDStreamExtractor.setOutputCallback(prog)
             result = YDStreamExtractor.handleDownload(
                 vid,
